@@ -1,0 +1,19 @@
+Package: QuieScore
+Type: Package
+Title: Uses Single Cell Gene Expression Data to Score Tumor Quiescence
+Version: 0.9.97
+Author: Daniel Kornai <daniel.kornai.18@ucl.ac.uk>
+Maintainer: Daniel Kornai <daniel.kornai.18@ucl.ac.uk>
+Description: This package takes single cell transcriptomic data as input, and asesses the quiescence of the samples. 
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Depends: 
+    R (>= 4.1)
+biocViews:
+Imports: 
+    ggnewscale,
+    GSVA,
+    sva,
+    ggplot2
