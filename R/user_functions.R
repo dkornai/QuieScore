@@ -74,7 +74,6 @@ processInput <- function(input_object, cancer_type, gene_naming, log_transformed
 #' @import sva
 #' @import ggnewscale
 #' @import ggplot2
-#' @import ggpubr
 #' @examples
 #' patient1_results <- QuiescenceScore(patient1_data_processed)
 #' patient2_results <- QuiescenceScore(patient2_data_processed, genelist_eval = "core")
