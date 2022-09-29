@@ -99,8 +99,10 @@ QuiescenceScore <- function(input_data, genelist_eval = "full", method_eval = "z
       # load the genes used for identifying subtypes of quiescence
     q_subtype_genes <- qlist_subt_name
       # load the full or core list for identifying general quiescence
-    if (genelist_eval == "full"){ gene_list <- genelist_full_name }
-    else if (genelist_eval == "core"){ gene_list <- genelist_core_name }
+    if (genelist_eval == "full"){ gene_list <- genelist_full_name
+    }
+    else if (genelist_eval == "core"){ gene_list <- genelist_core_name
+    }
   }
   else if (gene_naming == "ensg"){
       # load TCGA and filter to be cancer type specific
@@ -108,8 +110,10 @@ QuiescenceScore <- function(input_data, genelist_eval = "full", method_eval = "z
       # load the genes used for identifying subtypes of quiescence
     q_subtype_genes <- qlist_subt_ENSG
       # load the full or core list for identifying general quiescence
-    if (genelist_eval == "full"){ gene_list <- genelist_full_ENSG }
-    else if (genelist_eval == "core"){ gene_list <- genelist_core_ENSG }
+    if (genelist_eval == "full"){ gene_list <- genelist_full_ENSG
+    }
+    else if (genelist_eval == "core"){ gene_list <- genelist_core_ENSG
+    }
   }
 
   # load the user's expression data into a dedicated data frame

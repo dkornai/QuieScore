@@ -55,9 +55,12 @@ qScore <- function(input_expr, method_eval, genelist, parallel){
     cat("WARNING: Less than 2 downregulated genes required present in the user data!\n") }
 
   # calculate quiescence scores with one of the methods
-  if(method_eval == "zscore"){ q_score <- GSVA::gsva(user_expr, genelist, method = "zscore", parallel.sz=parallel) }
-  else if (method_eval == "ssgsea"){ q_score <- GSVA::gsva(user_expr, genelist, method = "ssgsea",  parallel.sz=parallel) }
-  else if (method_eval == "gsva"){  q_score <- GSVA::gsva(user_expr, genelist, mx.diff= TRUE,  parallel.sz=parallel) }
+  if(method_eval == "zscore"){
+    q_score <- GSVA::gsva(user_expr, genelist, method = "zscore", parallel.sz=parallel) }
+  else if (method_eval == "ssgsea"){
+    q_score <- GSVA::gsva(user_expr, genelist, method = "ssgsea",  parallel.sz=parallel) }
+  else if (method_eval == "gsva"){
+    q_score <- GSVA::gsva(user_expr, genelist, mx.diff= TRUE,  parallel.sz=parallel) }
 
   # formatting and cleanup
   q_score <- data.frame(t(q_score))
