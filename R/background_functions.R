@@ -50,17 +50,22 @@ qScore <- function(input_expr, method_eval, genelist, parallel){
 
   # warn the user that genes used for inferring the given quiescence type are not all present
   if(length(which(rownames(user_expr) %in% unlist(genelist[1]))) < 2){
-    cat("WARNING: Less than 2 upregulated genes required present in the user data!\n") }
+    cat("WARNING: Less than 2 upregulated genes required present in the user data!\n")
+  }
   if(length(which(rownames(user_expr) %in% unlist(genelist[2]))) < 2){
-    cat("WARNING: Less than 2 downregulated genes required present in the user data!\n") }
+    cat("WARNING: Less than 2 downregulated genes required present in the user data!\n")
+  }
 
   # calculate quiescence scores with one of the methods
   if(method_eval == "zscore"){
-    q_score <- GSVA::gsva(user_expr, genelist, method = "zscore", parallel.sz=parallel) }
+    q_score <- GSVA::gsva(user_expr, genelist, method = "zscore", parallel.sz=parallel)
+  }
   else if (method_eval == "ssgsea"){
-    q_score <- GSVA::gsva(user_expr, genelist, method = "ssgsea",  parallel.sz=parallel) }
+    q_score <- GSVA::gsva(user_expr, genelist, method = "ssgsea",  parallel.sz=parallel)
+  }
   else if (method_eval == "gsva"){
-    q_score <- GSVA::gsva(user_expr, genelist, mx.diff= TRUE,  parallel.sz=parallel) }
+    q_score <- GSVA::gsva(user_expr, genelist, mx.diff= TRUE,  parallel.sz=parallel)
+  }
 
   # formatting and cleanup
   q_score <- data.frame(t(q_score))
@@ -80,6 +85,7 @@ qScore_percentile <- function(input_expr, method_eval, genelist, batch_vector, u
   # calculate percentiles
   percentile_user_vec <- percentile(TCGA_qscore, user_qscore)
   percentile_TCGA_vec <- percentile(TCGA_qscore, TCGA_qscore)
+
   # make output the user or TCGA results, depending on "user_or_TCGA"
   if (user_or_TCGA == "user"){
     output <- matrix(nrow = length(user_qscore), ncol = 2)
