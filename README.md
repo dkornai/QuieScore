@@ -14,4 +14,5 @@ For a sample script and input data, please see the **sampleScript** folder.
 # Output
 
 **q_score_raw** - the raw G0 arrest scores (anything above 0 would be arrested in G0, and if you want to be more stringent you can use a cut-off of 1.5 or 3)
+
 **q_score_normalised** - aligns the scores with respect to TCGA samples from the same cancer type (NB this is only suitable when looking at bulk cancer samples, and only for cancers that are profiled in TCGA)
